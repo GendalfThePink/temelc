@@ -58,5 +58,5 @@ void main()
   {
     printf("tmm.s\n") ; // ekmek varsa neden programı calistirdin.
   }
-
+ printf("\n ekmek sayin : %d \n paran : %d \n",ekmek ,para);//program bitmeden ekmek sayimi ve para sayimi gösteriyorum.
 }
