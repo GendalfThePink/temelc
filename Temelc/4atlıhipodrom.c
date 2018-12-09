@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 /* Atlar Koşusu için hazırlanıyor.*/
-
+//TODO Koşu fonksiyonu yazılacak . Kaç at olacağı ve atların numaraları girilecek , ona göre yeterli hipodrom oluşturulacak
 
 int atkosar (int basladigikonum)
 {
@@ -71,7 +71,7 @@ int hipodromkosusu(int konum)
 {
 
 
-      konum = atkosar(konum);
+      konum = atkosar(konum);//TODO buraya pointer eklenecek
 
       hipodromcizdir(konum);
       return konum ;
@@ -117,13 +117,13 @@ for (int i = 0; i < 10; i++) {
                     }
                       win = true ;
                   }
-                    konum1= hipodromkosusu(konum1);
+                    konum1= hipodromkosusu(konum1); //TODO buraya pointer eklenecek
 
-                    konum2= hipodromkosusu(konum2);
+                    konum2= hipodromkosusu(konum2); //TODO buraya pointer eklenecek
 
-                    konum3= hipodromkosusu(konum3);
+                    konum3= hipodromkosusu(konum3); //TODO buraya pointer eklenecek
 
-                    konum4= hipodromkosusu(konum4);
+                    konum4= hipodromkosusu(konum4); //TODO buraya pointer eklenecek
 
                     usleep(100000);
                     if(win)
