@@ -5,3 +5,5 @@ deneme amaçlı c dosyalarıdır , farklı türde algoritmaları denemek ve malz
 
 
 Bu dosyaları indirip , deneyip iyileştirip yada farklı bi fikirle gelip buraya atarak bu dosyaları çeşitlendirebiliriz !
+
+4atlihipodrom.c Fonksiyon ve Dongu alistirmasidir. 3.4.haftalar icin on hazirliktir. 
