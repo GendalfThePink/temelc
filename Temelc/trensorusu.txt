@@ -1,0 +1,45 @@
+https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/seating-arrangement-1/
+
+bu linkteki şu fotoğrafa göre :
+
+https://he-s3.s3.amazonaws.com/media/uploads/a2e0794.jpg
+ 
+ 
+Elimizde bir tren var ve koltukları fotoğraftaki şekilde numaralandırılmıştır.
+
+Fotoğraf olmayanlar için 
+Cam kenarları -----
+6  7|18  19|30  31|42  43
+5  8|17  20|29  32|41  44
+4  9|16  21|28  33|40  45
+
+Koridor----
+
+3  10|15 22|27  34|39  46
+2  11|14 23|26  35|38  47
+1  12|13 24|25  36|37  48
+Cam kenarları ----
+
+... Şeklinde sıralanır.
+
+Bu numaralara göre bize 1-108 arasında bir koltuk sayısı verildiğini varsayarak.
+
+Koltuk numaralarındaki her koltuk sayısı X için bize o koltuğun tam karşısında bulunan koltuğun numarasını veren bir algoritma yazmamız isteniyor.
+Ve bu koltuğun cam kenarımı , ortadamı , koridor tarafındamı olduğunuda sonuca eklememiz isteniyor.
+
+Yani verilen 
+
+2 
+18
+40 
+
+sayılarında çıktı olarak 
+
+11 orta sıra 
+19 cam kenarı 
+45 koridor 
+
+verecek bir program .
+
+** Koltuk sayıları 1'den 108 e kadar olabilir. Verilen X numarasıda koltuk sayısı(N) dahilinde olmalıdır.**
+
