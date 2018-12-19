@@ -1,146 +1,173 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <time.h>
-#include <stdbool.h>
-/* Atlar Koşusu için hazırlanıyor.*/
-//TODO Koşu fonksiyonu yazılacak . Kaç at olacağı ve atların numaraları girilecek , ona göre yeterli hipodrom oluşturulacak
+#include <windows.h>
+/************************
+Ganyan bayiine Hoşgeldiniz
+*************************/
+//Fonksiyonları tanımladığım yer
 
-int atkosar (int basladigikonum)
+
+
+void uyut(int milisaniye)
 {
-  int hareket;
-
-  int sans = rand() % 101;
-  hareket=1 ;
-  if(sans < 30)
-  {
-    hareket = 1 ;
-  }
-  if (sans >= 30 && sans < 50)
-  {
-    hareket = 2;
-  }
-  if (sans >= 50 && sans < 67)
-  {
-    hareket = 3;
-  }
-  if (sans >= 67 && sans < 80)
-  {
-    hareket = 4;
-  }
-  if (sans >= 80 && sans <= 100)
-  {
-    hareket = 5;
-  }
-
-
-  int yenikonum = basladigikonum + hareket ;
-
-  return yenikonum ;
-
-
+	Sleep(milisaniye);
 }
 
-
-void hipodromcizdir(int konum)
+void Ekranitemizle()
 {
-      if(konum >= 49)
-      {
-        konum = 49 ;
-      }
-      int hipodrom[50]={0};
-      hipodrom[konum] = 1 ;
-      for(int i = 0 ; i<50;i++ )
-      {
-            if(konum==i)
-            {
-              printf("AT");
-            }
-            else
-            {
-              printf("-");
-            }
-
-      }
-      printf("\n\n\n");
-      hipodrom[konum] = 0 ;
+ system("@cls||clear");	
 }
 
-
-int hipodromkosusu(int konum)
+void basaal()
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD pos = {0, 0};
+    SetConsoleCursorPosition(hConsole, pos);
+}
 
+int atkosar(int konum)
+{
+	int a = rand()%100 +1 ;
+	int hareket ;
 
-      konum = atkosar(konum);//TODO buraya pointer eklenecek
+	if(a>50)
+	{
+		hareket = 3 ; 
+	}
+	else
+	{
+		hareket = 1 ; 
+	}
+	return konum+hareket ; 
+}
+void yazdir(int konum)
+{
+	int hipodrom[50]= {0} ; 
+	hipodrom[konum]= 1 ; 
+	int i ; 
+	for (i=0 ; i<50 ; i++)
+	{
+		if(hipodrom[i]==0)
+		{
+			printf("_");
+		}
+		else
+		{
+			printf("AT");
+		}
+	}
+	printf("\n");
+}
 
-      hipodromcizdir(konum);
-      return konum ;
+void main() {
+	time_t t;
+	 srand((unsigned) time(&t));
+	int para=100;
+	while(1)
+	{
+		 int k1 = 0 ; 
+	int k2 = 0 ; 
+	int k3 = 0 ; 
+	int k4 = 0 ;
+	
+	printf("bahsinizi yatırınız \n");
+	int bahis;
+	scanf("%d",&bahis);
+	printf("\n Hangi at kazanır ? \n");
+	int at ;
+	scanf("%d",&at);
+	
+	Ekranitemizle();
+	printf("Yarıs baslıyor.");
+	uyut(1000);
+	printf(".");
+	uyut(1000);
+	printf(".");
+	uyut(1000);
+	printf(".");
+	uyut(1000);
+	printf(".");
+	Ekranitemizle();
+	 while(k1<50 && k2<50 && k3<50 && k4<50)
+	 {
+
+	
+	k1 = atkosar(k1);
+	k2 = atkosar(k2);
+	k3 = atkosar(k3);
+	k4 = atkosar(k4);
+	
+	printf ("%d %d %d %d \n",k1,k2,k3,k4);
+	
+	yazdir(k1);
+	yazdir(k2);
+	yazdir(k3);
+	yazdir(k4);
+	
+	uyut(100);
+	if(k1>50)
+	{
+		if(at==1)
+		{ 
+		para=para+bahis*2;
+		}
+			else
+		{
+			para = para-bahis;
+		}
+			printf("1. at kazandı !! yeni paranız : %d",para);	
+	}
+	if(k2>50)
+	{
+		if(at==2)
+		{ 
+		para=para+bahis*2;
+		}
+			else
+		{
+			para = para-bahis;
+		}
+		
+		printf("2. at kazandı !! yeni paranız : %d",para);
+		
+	}
+		if(k3>50)
+	{
+		if(at==3)
+		{ 
+		para=para+bahis*2;
+		}
+			else
+		{
+			para = para-bahis;
+		}
+			printf("3. at kazandı !! yeni paranız : %d",para);
+		
+	}
+		if(k4>50)
+	{
+		if(at==4)
+		{ 
+		para=para+bahis*2;
+		}
+		else
+		{
+			para = para-bahis;
+		}
+			printf("4. at kazandı !! yeni paranız : %d",para);
+	}
+	
+	printf("devam etmek icin bir tusa basiniz");
+	getch();
+	basaal();
+	}
+
+	Ekranitemizle();
+	
+	
+	}
+	
+
 }
 
 
-int main ()
- {
-    srand(time(NULL));
-    int k1 = 0 ;
-    int k2 = 0 ;
-    int k3 = 0 ;
-    int k4 = 0 ;
-
-for (int i = 0; i < 10; i++) {
-
-        int konum1 = 0 ;
-        int konum2 = 0 ;
-        int konum3 = 0 ;
-        int konum4 = 0 ;
-
-          printf("\033[H\033[J");
-              while  (1)
-                {
-                  bool win = false ;
-                  if (konum1>=49 || konum2 >=49 || konum3>=49 || konum4>=49)
-                  {
-                    if(konum1>=49)
-                    {
-                      k1 = k1+1 ;
-                    }
-                    if(konum2>=49)
-                    {
-                      k2= k2+1 ;
-                    }
-                    if(konum3>=49)
-                    {
-                      k3 = k3+1 ;
-                    }
-                    if(konum4>=49)
-                    {
-                      k4 = k4+1 ;
-                    }
-                      win = true ;
-                  }
-                    konum1= hipodromkosusu(konum1); //TODO buraya pointer eklenecek
-
-                    konum2= hipodromkosusu(konum2); //TODO buraya pointer eklenecek
-
-                    konum3= hipodromkosusu(konum3); //TODO buraya pointer eklenecek
-
-                    konum4= hipodromkosusu(konum4); //TODO buraya pointer eklenecek
-
-                    usleep(100000);
-                    if(win)
-                    {
-                      usleep(100000);
-                      break ;
-                    }
-                      printf("\033[%d;%dH", (0), (0));
-
-
-              }
-
-              }
-
-    printf("\n\n\n\n\n\n");
-  printf("%d %d %d %d \n",k1,k2,k3,k4);
-
-
-   return(0);
-}
